@@ -23,6 +23,12 @@ contract BasicNftTest is Test {
         console.log("givenName", givenName);
 
         assertEq(expectedName, givenName);
+
+        // Work around to compare with == string types
+        assert(
+            keccak256(abi.encodePacked(expectedName)) ==
+                keccak256(abi.encodePacked(givenName))
+        );
     }
 
     function testSymbolIsCorrect() public {
