@@ -20,3 +20,11 @@ data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgd2lkdGg9IjQwMCIgIG
 
 ## Example encoded svg to compare with test case
 data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PHRleHQgeD0iMCIgeT0iMTUiIGZpbGw9ImJsYWNrIj5IaSEgWW91ciBicm93c2VyIGRlY29kZWQgdGhpczwvdGV4dD48L3N2Zz4=
+
+
+# Tests on Anvil
+- execute: make envil
+- on second bash: make deployMood -> get <contract_address>
+- import address to metamask using private key
+- execute to mint: cast send <contract_address> "mintNft()" --private-key <private_key> --rpc-url http://localhost:8545
+- execute to flip: cast send <contract_address> "flipMood(uint256)" 0 --private-key <private_key> --rpc-url http://localhost:8545
